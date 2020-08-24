@@ -14,8 +14,7 @@ mongoose
   .then(() => console.log("Database connected"))
   .catch((err) => console.log(err));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json);
+app.use(bodyParser.json());
 
 app.use("/api/users", UserRoutes);
 
@@ -28,3 +27,31 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`App is running on: ${PORT}`);
 });
+
+//Temporary
+// const Role = require("./models/Role");
+// const User = require("./models/User");
+
+// const admin = new Role({ name: "admin", rights: 777 });
+
+// admin
+//   .save()
+//   .then(() => console.log("Admin saved"))
+//   .catch((err) => console.log(err));
+
+// const newUser = new User({
+//   email: "cseh.norbert94@gmail.com",
+//   username: "NorbertCseh",
+//   handle: "norbertcseh",
+//   avatar: "URL",
+//   password: "123456",
+//   register_date: Date.now(),
+//   role: admin,
+// });
+
+// newUser
+//   .save()
+//   .then(() => {
+//     console.log("User saved");
+//   })
+//   .catch((err) => console.log(err));
